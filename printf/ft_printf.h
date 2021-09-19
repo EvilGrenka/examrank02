@@ -4,12 +4,12 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 typedef struct s_format_arg
 {
     long width;
     long precision;
+    long minus;
     char spec_type;
     long field;
     long show;
@@ -27,8 +27,11 @@ t_format_arg init_format_arg(char c , long num);
 long get_field (const char ** format);
 long get_precision (const char ** format); 
 
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int ft_isnum( char c);
 int is_spec_type(char c);
-char * conver_d (va_list *ap);
+char * conver_d (va_list *ap, t_format_arg * format_arg);
 char * convert_x (va_list * ap);
 char * convert (size_t num, char * set);
 
